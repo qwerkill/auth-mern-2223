@@ -23,7 +23,7 @@ const AuthController = {
     },
     
     signin: async (req, res, next) => {
-        const {email, password,firstName,lastName} = req.body
+        const {email, password} = req.body
     
         const user = await User.findOne({email}).select('+password')
 
@@ -36,8 +36,7 @@ const AuthController = {
         if(!ressult){
             return res.status(400).send({error: "Invalid password"})
         }
-
-        const accessToken = jwt.sign({_id: user._id, email,firstName,lastName}, process.env.JWT_SECRET, {
+        const accessToken = jwt.sign({_id: user._id, email,firstName:user.firstName, lastName:user.lastName}, process.env.JWT_SECRET, {
             expiresIn: 86400
         })
 

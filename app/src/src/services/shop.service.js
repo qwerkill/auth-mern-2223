@@ -23,7 +23,7 @@ const update = async (id, data) => {
     return response.data;
 }
 
-const remove = async (id) => {
+const delate = async (id) => {
     const response = await instance.delete(`/shops/${id}`);
     return response.data;
 }
@@ -33,7 +33,7 @@ const ShopService = {
     getAll,
     getOne,
     update,
-    remove
+    delate
 };
 
 export default ShopService;

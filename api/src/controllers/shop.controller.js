@@ -26,8 +26,10 @@ const ShopController = {
     },
     update : async (req, res) => {
         const {name,description,location,imageUrl} = req.body
+        const {id} = req.params
         
         try {
+           
             const shop = await Shop.findByIdAndUpdate(req.params.id, {
                 name,
                 description,

@@ -13,7 +13,6 @@ const shopSchema = new Schema({
     },
     imageUrl: {
         type: String,
-        default: 'https://www.ikea.com/PIAimages/0452019_PE694201_S5.JPG'
     },
     description: {
         type: String,

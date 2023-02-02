@@ -5,7 +5,6 @@ const UserContext = createContext();
 const UserProvider = ({children}) => {
     const [user, setUser] = useState(null);
     
-
     const signout = () => {
         localStorage.removeItem('accessToken');
         setUser(null);

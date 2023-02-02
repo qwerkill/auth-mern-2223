@@ -1,8 +1,10 @@
+import ShopList from "../components/shop/ShopList";
+
 const Shop = () => {
 
     return ( 
         <div>
-            <h1>Shop Page</h1>
+            <ShopList/>
         </div>
      );
 }

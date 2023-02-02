@@ -8,11 +8,10 @@ import MainRouter from './app/routes/MainRouter';
 function App() {
   const {setUser} = useContext(UserContext);
 
-  
   useEffect(() => {
-  const user =  TokenService.getUserFromLocalToken();
-  setUser(user);
-  }, [ ])
+    const user =  TokenService.getUserFromLocalToken();
+    setUser(user);
+  }, [])
 
 
 

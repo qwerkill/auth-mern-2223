@@ -6,7 +6,6 @@ import UserService from '../../../../src/services/user.service';
 
 const UserUpdate = () => {
     const {user, setUser} = useContext(UserContext)
-    const token = TokenService.getTokenFromLocalStorage()
     const navigate = useNavigate()
     const [credentials, setCredentials] = useState(user)
   
@@ -20,16 +19,15 @@ const UserUpdate = () => {
     const handleSubmit = async (e) => {
         e.preventDefault()
         try{
-            const updatedUser = await UserService.update(user._id, credentials)
-            setUser(updatedUser)
-            navigate('/account')
+            const {accessToken} = await UserService.update(user._id, credentials)
+            TokenService.setTokenInlocalStorage(accessToken)
+            const newUser = TokenService.getUserFromLocalToken()
+            setUser(newUser)
+           navigate('/')
         } catch (error) {
-            console.log(error)
-        }        
+            console.log(error) 
+        }
     }
-
-
-
     
     
     return ( 
